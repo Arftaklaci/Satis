@@ -1,315 +1,116 @@
-<?php
-/**
- * CodeIgniter
- *
- * An open source application development framework for PHP
- *
- * This content is released under the MIT License (MIT)
- *
- * Copyright (c) 2014 - 2019, British Columbia Institute of Technology
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- *
- * @package	CodeIgniter
- * @author	EllisLab Dev Team
- * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
- * @copyright	Copyright (c) 2014 - 2019, British Columbia Institute of Technology (https://bcit.ca/)
- * @license	https://opensource.org/licenses/MIT	MIT License
- * @link	https://codeigniter.com
- * @since	Version 1.0.0
- * @filesource
- */
-
-/*
- *---------------------------------------------------------------
- * APPLICATION ENVIRONMENT
- *---------------------------------------------------------------
- *
- * You can load different configurations depending on your
- * current environment. Setting the environment also influences
- * things like logging and error reporting.
- *
- * This can be set to anything, but default usage is:
- *
- *     development
- *     testing
- *     production
- *
- * NOTE: If you change these, also change the error_reporting() code below
- */
-	//define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
-	define('ENVIRONMENT', 'production');
-/*
- *---------------------------------------------------------------
- * ERROR REPORTING
- *---------------------------------------------------------------
- *
- * Different environments will require different levels of error reporting.
- * By default development will show errors but testing and live will hide them.
- */
-switch (ENVIRONMENT)
-{
-	case 'development':
-		error_reporting(-1);
-		ini_set('display_errors', 1);
-	break;
-
-	case 'testing':
-	case 'production':
-		ini_set('display_errors', 0);
-		if (version_compare(PHP_VERSION, '5.3', '>='))
-		{
-			error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT & ~E_USER_NOTICE & ~E_USER_DEPRECATED);
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Awoken Script Kurulum Yardımcısı</title>
+	<style type="text/css">.container{position:relative;width:100%;max-width:960px;margin:0 auto;padding:0 20px;box-sizing:border-box}.column,.columns{width:100%;float:left;box-sizing:border-box}@media (min-width:400px){.container{width:85%;padding:0}}@media (min-width:550px){.container{width:80%}.column,.columns{margin-left:4%}.column:first-child,.columns:first-child{margin-left:0}.one.column,.one.columns{width:4.66666666667%}.two.columns{width:13.3333333333%}.three.columns{width:22%}.four.columns{width:30.6666666667%}.five.columns{width:39.3333333333%}.six.columns{width:48%}.seven.columns{width:56.6666666667%}.eight.columns{width:65.3333333333%}.nine.columns{width:74%}.ten.columns{width:82.6666666667%}.eleven.columns{width:91.3333333333%}.twelve.columns{width:100%;margin-left:0}.one-third.column{width:30.6666666667%}.two-thirds.column{width:65.3333333333%}.one-half.column{width:48%}.offset-by-one.column,.offset-by-one.columns{margin-left:8.66666666667%}.offset-by-two.column,.offset-by-two.columns{margin-left:17.3333333333%}.offset-by-three.column,.offset-by-three.columns{margin-left:26%}.offset-by-four.column,.offset-by-four.columns{margin-left:34.6666666667%}.offset-by-five.column,.offset-by-five.columns{margin-left:43.3333333333%}.offset-by-six.column,.offset-by-six.columns{margin-left:52%}.offset-by-seven.column,.offset-by-seven.columns{margin-left:60.6666666667%}.offset-by-eight.column,.offset-by-eight.columns{margin-left:69.3333333333%}.offset-by-nine.column,.offset-by-nine.columns{margin-left:78%}.offset-by-ten.column,.offset-by-ten.columns{margin-left:86.6666666667%}.offset-by-eleven.column,.offset-by-eleven.columns{margin-left:95.3333333333%}.offset-by-one-third.column,.offset-by-one-third.columns{margin-left:34.6666666667%}.offset-by-two-thirds.column,.offset-by-two-thirds.columns{margin-left:69.3333333333%}.offset-by-one-half.column,.offset-by-one-half.columns{margin-left:52%}}html{font-size:62.5%}body{font-size:1.5em;line-height:1.6;font-weight:400;font-family:Raleway,HelveticaNeue,"Helvetica Neue",Helvetica,Arial,sans-serif;color:#222}h1,h2,h3,h4,h5,h6{margin-top:0;margin-bottom:2rem;font-weight:300}h1{font-size:4rem;line-height:1.2;letter-spacing:-.1rem}h2{font-size:3.6rem;line-height:1.25;letter-spacing:-.1rem}h3{font-size:3rem;line-height:1.3;letter-spacing:-.1rem}h4{font-size:2.4rem;line-height:1.35;letter-spacing:-.08rem}h5{font-size:1.8rem;line-height:1.5;letter-spacing:-.05rem}h6{font-size:1.5rem;line-height:1.6;letter-spacing:0}@media (min-width:550px){h1{font-size:5rem}h2{font-size:4.2rem}h3{font-size:3.6rem}h4{font-size:3rem}h5{font-size:2.4rem}h6{font-size:1.5rem}}p{margin-top:0}a{color:#1eaedb}a:hover{color:#0fa0ce}.button,button,input[type=button],input[type=reset],input[type=submit]{display:inline-block;height:38px;padding:0 30px;color:#555;text-align:center;font-size:11px;font-weight:600;line-height:38px;letter-spacing:.1rem;text-transform:uppercase;text-decoration:none;white-space:nowrap;background-color:transparent;border-radius:4px;border:1px solid #bbb;cursor:pointer;box-sizing:border-box}.button:focus,.button:hover,button:focus,button:hover,input[type=button]:focus,input[type=button]:hover,input[type=reset]:focus,input[type=reset]:hover,input[type=submit]:focus,input[type=submit]:hover{color:#333;border-color:#888;outline:0}.button.button-primary,button.button-primary,input[type=button].button-primary,input[type=reset].button-primary,input[type=submit].button-primary{color:#fff;background-color:#33c3f0;border-color:#33c3f0}.button.button-primary:focus,.button.button-primary:hover,button.button-primary:focus,button.button-primary:hover,input[type=button].button-primary:focus,input[type=button].button-primary:hover,input[type=reset].button-primary:focus,input[type=reset].button-primary:hover,input[type=submit].button-primary:focus,input[type=submit].button-primary:hover{color:#fff;background-color:#1eaedb;border-color:#1eaedb}input[type=email],input[type=number],input[type=password],input[type=search],input[type=tel],input[type=text],input[type=url],select,textarea{height:38px;padding:6px 10px;background-color:#fff;border:1px solid #d1d1d1;border-radius:4px;box-shadow:none;box-sizing:border-box}input[type=email],input[type=number],input[type=password],input[type=search],input[type=tel],input[type=text],input[type=url],textarea{-webkit-appearance:none;-moz-appearance:none;appearance:none}textarea{min-height:65px;padding-top:6px;padding-bottom:6px}input[type=email]:focus,input[type=number]:focus,input[type=password]:focus,input[type=search]:focus,input[type=tel]:focus,input[type=text]:focus,input[type=url]:focus,select:focus,textarea:focus{border:1px solid #33c3f0;outline:0}label,legend{display:block;margin-bottom:.5rem;font-weight:600}fieldset{padding:0;border-width:0}input[type=checkbox],input[type=radio]{display:inline}label>.label-body{display:inline-block;margin-left:.5rem;font-weight:400}ul{list-style:circle inside}ol{list-style:decimal inside}ol,ul{padding-left:0;margin-top:0}ol ol,ol ul,ul ol,ul ul{margin:1.5rem 0 1.5rem 3rem;font-size:90%}li{margin-bottom:1rem}code{padding:.2rem .5rem;margin:0 .2rem;font-size:90%;white-space:nowrap;background:#f1f1f1;border:1px solid #e1e1e1;border-radius:4px}pre>code{display:block;padding:1rem 1.5rem;white-space:pre}td,th{padding:12px 15px;text-align:left;border-bottom:1px solid #e1e1e1}td:first-child,th:first-child{padding-left:0}td:last-child,th:last-child{padding-right:0}.button,button{margin-bottom:1rem}fieldset,input,select,textarea{margin-bottom:1.5rem}blockquote,dl,figure,form,ol,p,pre,table,ul{margin-bottom:2.5rem}.u-full-width{width:100%;box-sizing:border-box}.u-max-full-width{max-width:100%;box-sizing:border-box}.u-pull-right{float:right}.u-pull-left{float:left}hr{margin-top:3rem;margin-bottom:3.5rem;border-width:0;border-top:1px solid #e1e1e1}.container:after,.row:after,.u-cf{content:"";display:table;clear:both}</style>
+</head>
+<body>
+	<div class="container" style="margin:2rem auto;">
+		<h4>Hesap Satış Scripti Kurulum Yardımcısı</h4>
+		<p>Lütfen <b>application/config/app.php</b> dosyasının yazılabilir durumda olduğundan emin olun.</p>
+		<?php
+		$installed = false;
+	if(isset($_POST["site_url"]) && isset($_POST["site_language"]) && isset($_POST["database_host"]) && isset($_POST["database_name"]) && isset($_POST["database_username"]) && isset($_POST["database_password"])) {
+	?>
+	<label>Kurulum Kayıtları:</label>
+	<textarea style="height:130px;resize:none;" class="u-full-width" disabled><?php
+	if(version_compare(PHP_VERSION, '5.6')) {
+	try {
+		$conn = new PDO("mysql:host=".$_POST["database_host"].";dbname=".$_POST["database_name"].";charset=utf8", $_POST["database_username"], $_POST["database_password"]);
+		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		echo "Veri tabanı bağlantısı başarılı!\n"; 
+		$conn->exec(file_get_contents("database.sql"));
+		echo "Veri tabanı aktarımı başarılı!\n";
+		if(is_writable(realpath("../application/config/app.php"))) {
+		$str = file_get_contents(realpath("../application/config/app.php"));
+		$str = str_replace("%BASEURL%", rtrim($_POST["site_url"], '/').'/', $str);
+		$str = str_replace("%DBHOST%", $_POST["database_host"], $str);
+		$str = str_replace("%DBUSER%", $_POST["database_username"], $str);
+		$str = str_replace("%DBPASS%", $_POST["database_password"], $str);
+		$str = str_replace("%DBNAME%", $_POST["database_name"], $str);
+		file_put_contents(realpath("../application/config/app.php"), $str);
+		$conn->exec("UPDATE configs SET value = '".$_POST["site_language"]."' WHERE name = 'language'");
+		echo "Ayar dosyası başarıyla güncellendi!\n";
+		$installed = true;
 		}
-		else
-		{
-			error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT & ~E_USER_NOTICE);
+		else {
+		echo "Ayar dosyası yazılabilir durumda değil!\n";
 		}
-	break;
-
-	default:
-		header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
-		echo 'The application environment is not set correctly.';
-		exit(1); // EXIT_ERROR
-}
-
-/*
- *---------------------------------------------------------------
- * SYSTEM DIRECTORY NAME
- *---------------------------------------------------------------
- *
- * This variable must contain the name of your "system" directory.
- * Set the path if it is not in the same directory as this file.
- */
-	$system_path = 'system';
-
-/*
- *---------------------------------------------------------------
- * APPLICATION DIRECTORY NAME
- *---------------------------------------------------------------
- *
- * If you want this front controller to use a different "application"
- * directory than the default one you can set its name here. The directory
- * can also be renamed or relocated anywhere on your server. If you do,
- * use an absolute (full) server path.
- * For more info please see the user guide:
- *
- * https://codeigniter.com/user_guide/general/managing_apps.html
- *
- * NO TRAILING SLASH!
- */
-	$application_folder = 'application';
-
-/*
- *---------------------------------------------------------------
- * VIEW DIRECTORY NAME
- *---------------------------------------------------------------
- *
- * If you want to move the view directory out of the application
- * directory, set the path to it here. The directory can be renamed
- * and relocated anywhere on your server. If blank, it will default
- * to the standard location inside your application directory.
- * If you do move this, use an absolute (full) server path.
- *
- * NO TRAILING SLASH!
- */
-	$view_folder = '';
-
-
-/*
- * --------------------------------------------------------------------
- * DEFAULT CONTROLLER
- * --------------------------------------------------------------------
- *
- * Normally you will set your default controller in the routes.php file.
- * You can, however, force a custom routing by hard-coding a
- * specific controller class/function here. For most applications, you
- * WILL NOT set your routing here, but it's an option for those
- * special instances where you might want to override the standard
- * routing in a specific front controller that shares a common CI installation.
- *
- * IMPORTANT: If you set the routing here, NO OTHER controller will be
- * callable. In essence, this preference limits your application to ONE
- * specific controller. Leave the function name blank if you need
- * to call functions dynamically via the URI.
- *
- * Un-comment the $routing array below to use this feature
- */
-	// The directory name, relative to the "controllers" directory.  Leave blank
-	// if your controller is not in a sub-directory within the "controllers" one
-	// $routing['directory'] = '';
-
-	// The controller class file name.  Example:  mycontroller
-	// $routing['controller'] = '';
-
-	// The controller function you wish to be called.
-	// $routing['function']	= '';
-
-
-/*
- * -------------------------------------------------------------------
- *  CUSTOM CONFIG VALUES
- * -------------------------------------------------------------------
- *
- * The $assign_to_config array below will be passed dynamically to the
- * config class when initialized. This allows you to set custom config
- * items or override any default config values found in the config.php file.
- * This can be handy as it permits you to share one application between
- * multiple front controller files, with each file containing different
- * config values.
- *
- * Un-comment the $assign_to_config array below to use this feature
- */
-	// $assign_to_config['name_of_config_item'] = 'value of config item';
-
-
-
-// --------------------------------------------------------------------
-// END OF USER CONFIGURABLE SETTINGS.  DO NOT EDIT BELOW THIS LINE
-// --------------------------------------------------------------------
-
-/*
- * ---------------------------------------------------------------
- *  Resolve the system path for increased reliability
- * ---------------------------------------------------------------
- */
-
-	// Set the current directory correctly for CLI requests
-	if (defined('STDIN'))
-	{
-		chdir(dirname(__FILE__));
+    }
+	catch(PDOException $e)
+    {
+		echo "Veri tabanı bağlantısı başarısız!";
 	}
-
-	if (($_temp = realpath($system_path)) !== FALSE)
-	{
-		$system_path = $_temp.DIRECTORY_SEPARATOR;
 	}
-	else
-	{
-		// Ensure there's a trailing slash
-		$system_path = strtr(
-			rtrim($system_path, '/\\'),
-			'/\\',
-			DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
-		).DIRECTORY_SEPARATOR;
+	else {
+		echo "PHP sürümünüz minimum 5.6 sürümünde olmalı!";
 	}
-
-	// Is the system path correct?
-	if ( ! is_dir($system_path))
-	{
-		header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
-		echo 'Your system folder path does not appear to be set correctly. Please open the following file and correct this: '.pathinfo(__FILE__, PATHINFO_BASENAME);
-		exit(3); // EXIT_CONFIG
+	?>
+	</textarea>
+	<?php
 	}
-
-/*
- * -------------------------------------------------------------------
- *  Now that we know the path, set the main path constants
- * -------------------------------------------------------------------
- */
-	// The name of THIS file
-	define('SELF', pathinfo(__FILE__, PATHINFO_BASENAME));
-
-	// Path to the system directory
-	define('BASEPATH', $system_path);
-
-	// Path to the front controller (this file) directory
-	define('FCPATH', dirname(__FILE__).DIRECTORY_SEPARATOR);
-
-	// Name of the "system" directory
-	define('SYSDIR', basename(BASEPATH));
-
-	// The path to the "application" directory
-	if (is_dir($application_folder))
-	{
-		if (($_temp = realpath($application_folder)) !== FALSE)
-		{
-			$application_folder = $_temp;
-		}
-		else
-		{
-			$application_folder = strtr(
-				rtrim($application_folder, '/\\'),
-				'/\\',
-				DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
-			);
-		}
+	if($installed) {
+	?>
+	<p>Script başarıyla kuruldu! Admin paneline şu bilgiler ile giriş yapabilirsiniz:<br/><br/><b>E-Posta Adresi:</b> admin@script.com<br/><b>Parola:</b> 123456<br/><br/>Bu kurulum yardımcı otomatik olarak kendini silecektir. Eğer silmez ise lütfen manuel olarak <b>install</b> klasörünü silin.</p>
+	<?php
+	try {
+	$dirPath = realpath("../install");
+    if (is_dir($dirPath)) {
+        $objects = scandir($dirPath);
+        foreach ($objects as $object) {
+            if ($object != "." && $object !="..") {
+                if (filetype($dirPath . DIRECTORY_SEPARATOR . $object) == "dir") {
+                    deleteDirectory($dirPath . DIRECTORY_SEPARATOR . $object);
+                } else {
+                    unlink($dirPath . DIRECTORY_SEPARATOR . $object);
+                }
+            }
+        }
+    reset($objects);
+    rmdir($dirPath);
+    }
 	}
-	elseif (is_dir(BASEPATH.$application_folder.DIRECTORY_SEPARATOR))
-	{
-		$application_folder = BASEPATH.strtr(
-			trim($application_folder, '/\\'),
-			'/\\',
-			DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
-		);
-	}
-	else
-	{
-		header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
-		echo 'Your application folder path does not appear to be set correctly. Please open the following file and correct this: '.SELF;
-		exit(3); // EXIT_CONFIG
-	}
+	catch(Exception $e) {}
+	} else {?>
+		<form action="" method="POST">
+		<div class="row">
+		<div class="six columns">
+			<label for="siteUrl">Site Url:</label>
+			<input name="site_url" class="u-full-width" type="text" placeholder="https://example.com/" id="siteUrl" required>
+		</div>
+		<div class="six columns">
+			<label for="siteLanguage">Site Dili:</label>
+			<select name="site_language" class="u-full-width" id="siteLanguage">
+				<option value="tr">Türkçe</option>
+				<option value="en">English</option>
+			</select>
+		</div>
+		</div>
 
-	define('APPPATH', $application_folder.DIRECTORY_SEPARATOR);
-
-	// The path to the "views" directory
-	if ( ! isset($view_folder[0]) && is_dir(APPPATH.'views'.DIRECTORY_SEPARATOR))
-	{
-		$view_folder = APPPATH.'views';
-	}
-	elseif (is_dir($view_folder))
-	{
-		if (($_temp = realpath($view_folder)) !== FALSE)
-		{
-			$view_folder = $_temp;
-		}
-		else
-		{
-			$view_folder = strtr(
-				rtrim($view_folder, '/\\'),
-				'/\\',
-				DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
-			);
-		}
-	}
-	elseif (is_dir(APPPATH.$view_folder.DIRECTORY_SEPARATOR))
-	{
-		$view_folder = APPPATH.strtr(
-			trim($view_folder, '/\\'),
-			'/\\',
-			DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
-		);
-	}
-	else
-	{
-		header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
-		echo 'Your view folder path does not appear to be set correctly. Please open the following file and correct this: '.SELF;
-		exit(3); // EXIT_CONFIG
-	}
-
-	define('VIEWPATH', $view_folder.DIRECTORY_SEPARATOR);
-
-/*
- * --------------------------------------------------------------------
- * LOAD THE BOOTSTRAP FILE
- * --------------------------------------------------------------------
- *
- * And away we go...
- */
-require_once BASEPATH.'core/CodeIgniter.php';
+		<div class="row">
+		<div class="six columns">
+			<label for="dbHost">Veri Tabanı Sunucusu:</label>
+			<input name="database_host" class="u-full-width" type="text" value="localhost" id="dbHost" required>
+		</div>
+		<div class="six columns">
+			<label for="dbName">Veri Tabanı Adı:</label>
+			<input name="database_name" class="u-full-width" type="text" id="dbName" required>
+		</div>
+		</div>
+		<div class="row">
+		<div class="six columns">
+			<label for="dbUser">Veri Tabanı Kullanıcı Adı:</label>
+			<input name="database_username" class="u-full-width" type="text" id="dbUser" required>
+		</div>
+		<div class="six columns">
+			<label for="dbPass">Veri Tabanı Kullanıcı Parolası:</label>
+			<input name="database_password" class="u-full-width" type="text" id="dbPass" required>
+		</div>
+		</div>
+		<input class="button-primary" type="submit" value="Scripti Kur">
+		</form>
+		<?php } ?>
+	</div>
+</body>
+</html>
